@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Blog Posts</title>
+		<link rel="stylesheet" href="{% static 'style.css' %}" />
+	</head>
+	<body>
+		<p>hhhh</p>
+		<div class="card">
+  <img src="{{hotel.image.url}}" alt="{{hotel.name}}" style="width:100%">
+  <h1>{{hotel.name}}</h1>
+  <p class="price">${{hotel.daily_cost}}</p>
+  <p>{{hotel.county}}</p>
+  <p><button>Add to Cart</button></p>
+</div>
+	</body>
+</html>

@@ -1,58 +1,42 @@
-{% extends "base.html" %}
-{% load static %}
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %} 
+            
 
-{% block content %}
-<div class="container">
-  <div class="row">
-      <form class="col s6 offset-s3" action="" method="POST">
-        {% csrf_token %}
-        <center>
-          <h4>Log In</h4>
-        {% if msg %}
-          {{ msg }}
-        {% endif %}
-        </center>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">email</i>
-            <input id="id_email" name="email" type="email" class="validate">
-            <label for="id_email">Email</label>
-            <span class="helper-text" data-error="Incorrect email format" data-success=""></span>
-          </div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock</i>
-            <input id="id_password" name="password" type="password">
-            <label for="id_password">Password</label>
-          </div>
-          <center>
-            <button class="btn waves-effect waves-light" type="submit">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </center>
-          <br>
-          <center>
-            <a class="blue-text waves-effect waves-teal btn-flat" href="{% url 'register' %}">Don't have an account? Register now</a>
-          </center>
-        </div>
-      </form>
+            <small>Login Now</small>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" id="id_email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="id_password1" id="password" placeholder="Password">
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+
+                <a href="#">Forgot Password</a>
+            </div>
+
+            <button class="btn">Log In</button>
+
+            <small>Don't have an account? <a href="{% url 'register' %} ">Register</a></small>
+        </form>
     </div>
-  </div>
-
-<!--   <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
-        <br><br>
-      </div>
-    </div>
-    <div class="parallax"><img src="{% static 'images/background1.jpg' %}" alt="Unsplashed background img 1"></div>
-  </div> -->
-
-{% endblock content %}
+</body>
+</html>
