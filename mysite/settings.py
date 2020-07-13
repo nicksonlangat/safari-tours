@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "accounts",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,14 @@ USE_TZ = True
 AUTH_USER_MODEL="accounts.User"
 LOGIN_REDIRECT_URL='home'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
+if DEBUG:
+    STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-]
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+

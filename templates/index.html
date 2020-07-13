@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Blog Posts</title>
+		<link rel="stylesheet" href="{% static 'styles.css' %}" />
+	</head>
+	<body>
+		<div class="container">
+			{% for hotel in hotels %}
+			<div class="card">
+				<div class="card-header">
+					<img src="{{hotel.image.url}}" alt="{{hotel.name}}" />
+				</div>
+				<div class="card-body">
+					<span class="tag tag-teal">{{hotel.name}}</span>
+					<h4>Kshs {{hotel.daily_cost}}/ day</h4>
+					<p><strong>Location:</strong> {{hotel.county}}</p>
+					<p><strong>Address:</strong> {{hotel.address}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+</html>
